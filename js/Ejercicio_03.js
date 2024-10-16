@@ -140,6 +140,115 @@ Producto2.Disponibilidad="Sí"
 let nuevoTipoDisponibilidad = typeof(Producto2.Disponibilidad)
 console.log(Producto2);
 console.log(`El nuevo tipo de dato de la disponibilidad es: ${nuevoTipoDisponibilidad}`)
+
+//Convierte el Objeto a una cadena para evitar problemas con la referencia
+console.log('Por cuestiones de inflación el costo del producto ha cambiado y debe ser actualizado')
+Producto=19000.00
+console.log(`Los nuevos valores del producto son:`)
+console.log(Producto2);
+
+// Agregar nuevas propiedades a un objeto existente
+console.log("%c5.- Agregación de Propiedades de un Objeto (MUTACIÓN)",style_console);
+console.log("Objeto antes de ser modificado:")
+console.table(Comprador)
+
+// Agregando propiedades
+Comprador['Direccion'] = "Av. 05 de Mayo #25, Interior 4A, Xicotepec de Juárez, Puebla, México"
+Comprador['Tipo'] = "Premium";
+Comprador['Estatus'] = "Inactivo"
+Comprador['TotalCompras'] = 50000.00
+console.log("Objetos despues de ser modificado")
+console.table(Comprador)
+
+//Eliminar propiedades de un objeto existente
+console.log("%c6.- Eliminación de propiedades de un objeto (MUTACION)", style_console)
+console.log("Objeto antes de ser modificado")
+
+console.table(Pedido)
+//Eliminamos la propiedad de Tipo de pedido
+delete Pedido.TipoPago;
+console.log("Objeto despues de ser modificado")
+console.table(Pedido)
+
+console.log("%c7.- Métodos para controlar la mutabilidad de los objetos, congelación (FREEZE)", style_console);
+
+//Si deseamos permitir que los objetos 
+console.log('La estructura actual del objeto comprador es: ');
+console.table(Comprador)
+Object.freeze(Comprador)
+
+//Intentemos agregar, eliminar o modificar los valores de sus propiedades
+Comprador.FechaUltimaCompra= "05/09/2024 10:15:25"
+delete Comprador.Tipo
+Comprador.Direccion = "Calle 16 de septiembre #102, col. Manantiales, Huauchinango, Puebla, México";
+console.log('Verificamos sis e realizaron los cambios en el objeto Comprador: ')
+console.table(Comprador)
+
+
+console.log("%c8.- Métodos para controlar la mutabilidad de los Objetos, Sellado (SEAL)", style_console);
+// Sin embargo, en el caso que desemos poder modificar los valores de las propiedades del Objeto, pero no su estructura, usaremos SEAL
+console.log("Objeto antes de ser modificado: ")
+console.table(Pedido)
+//Sellamos el objeto
+Object.seal(Pedido)
+// Intentamos modificar su estructura
+Pedido['FechaPedido'] = "25/09/2024 11:05:03"
+delete Pedido['Cantidad']
+console.log('Verificamos si se realizaron los cambios en el Objeto PEDIDO:')
+console.table(Pedido)
+//Ahora intentamos modificar el valor de las propiedades
+Pedido.Cantidad = 5
+console.log('Verificamos si se realizaron los cambios en el Objeto PEDIDO:')
+console.table(Pedido);
+
+// Operaciones sobre Objetos
+// Unión de Objetos
+console.log("%c9.- Métodos para contorlar la mutabilidad de los Objetos, Sellado (SEAL)", style_console);
+
+// Destructuración de 2 o más objetos
+console.log("%c10.- Desestructuración de 2 o más Objetos", style_console);
+let {Precio: productoPrecio, SKU: productoSKU, Marca: productoMarca} = Producto
+let {Correo: clienteCorreo, PaisOrigen: clientePais, SaldoActual: clienteSaldo, Tipo: clienteTipo} = Comprador
+
+// Transformar valores cuantitativos en cualitativos
+if(productoPrecio>2000)
+    productoPrecio = "Caro"
+else
+    productoPrecio = "Barato"
+
+if (clienteSaldo>0)
+    clienteSaldo="A favor"
+else if (clienteSaldo<0)
+    clienteSaldo="En contra"
+else
+    clienteSaldo="Sin deuda"
+
+// Transformar valores cualitativos a cuantitativos
+
+let clienteNivel
+
+if(clienteTipo=="Premium")
+    clienteNivel = 1
+if (clienteTipo=="Free")
+    clienteNivel = 2
+if (clienteTipo=="No identificado")
+    clienteNivel = 3
+
+
+// Clasificamos al cliente por su País de Origen
+if(clientePais=="México")
+    clientePais= "Nacional"
+else
+    clientePais = "Extranjero"
+
+// OLE - Object Literal Enhancement
+
+let datosClientesPromociones = {clienteCorreo, clientePais, clienteNivel, clienteSaldo, productoMarca, productoPrecio}
+
+// El nuevo objeto que creamos sería un ejemplo de la información que enviariamos al area de Marketing  para la difusión de promociones
+console.log("Los datos del cliente y sus hábitos de compra son: ")
+console.table(datosClientesPromociones);
+
 // const producto = {
 //     nombre: "Tablet \"",
 //     marca: "Mac",
