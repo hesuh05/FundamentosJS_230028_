@@ -292,3 +292,80 @@ do {
 } while (continuarViendo && indice<episodios.length);
 
 console.log("Fin de la reproducción.");
+
+// Ciclo para recorrer objetos iterables cómo mapas, arreglos, cadenas y conjuntos de datos
+console.log("%c9.- Ciclos para recorrer elementos finitos- (FOR...OF) ", style_console);
+
+let seriesTrending = [
+    {nombre: "Bojack Horseman", temporadas: 6, totalViewers: "87.3M", totalReprods:"79.4M"},
+    {nombre: "The Boys", temporadas: 6, totalViewers: "120M", totalReprods:"59.2M"},
+    {nombre: "Barry", temporadas: 6, totalViewers: "15.3M", totalReprods:"2M"},
+    {nombre: "Teletubbies", temporadas: 6, totalViewers: "420.5M", totalReprods:"399.4M"},
+    {nombre: "La rosa de Guadalupe", temporadas: 1, totalViewers: "5B", totalReprods:"3.5B"},
+]
+
+// Usando for...of para recorrer al lista
+for (let serie of seriesTrending){
+    console.log(`Serie: ${serie.nombre}, Temporadas: ${serie.temporadas}, Total de Viewers: ${serie.totalViewers}, Total de Reproducciones: ${serie.totalReprods}`)
+}
+
+try {
+    console.log(`La última serie leida fué: ${serie.nombre}`); // No va a funcionar por la variable serie ya no existe ya que sualcance solo estuvo dentro del ciclo
+} catch (error)
+{
+    console.log("Mensaje de error: "+error.message)
+}
+
+
+// Mostrar los resultados
+console.log("%c10.- Ciclos para recorrer las propiedades de elementos finitos - (FOR... IN) ",style_console);
+
+
+// Usando for... in para recorrer cada serie
+for (let i in seriesTrending) {
+    console.log(`Serie ${parseInt(i)+1};`);
+    for (let propiedad in seriesTrending[i]){
+        console.log(`${propiedad}: ${seriesTrending[i][propiedad]}`);
+    }
+    console.log('-------------');
+}
+console.log("%c11.- Ciclos ininterrumpidos para cada uno de los elementos del arreglo (FOR EACH)",style_console)
+
+// Lista de series de TV trending con temporadas, viewers y reproducciones
+let seriesTrending2 = [
+    {nombre: "Bojack Horseman", temporadas: 6, viewers: 9000000, reproducciones:120000000},
+    {nombre: "The Boys", temporadas: 4, viewers: 40000, reproducciones: 5000000},
+    {nombre: "Barry", temporadas: 3, viewers: 90000, reproducciones:2000000},
+    {nombre: "Teletubbies", temporadas: 6, viewers: 2000000, reproducciones:40000000},
+    {nombre: "La rosa de Guadalupe", temporadas: 8, viewers: 5000000, reproducciones:10000000},
+    {nombre: "The Walking Dead", temporadas: 16, viewers: 100000000, reproducciones: 1000000000}
+]
+
+// Usando forEach para recorrer cada serie y calcular la calificación
+seriesTrending2.forEach((serie,index) =>{
+    let calificacion = (serie.reproducciones / serie.viewers).toFixed(2); // Calcula la calificación y la redondea a 2 decimales
+    console.log(`Serie: ${index + 1}`);
+    console.log(`Nombre: ${serie.nombre}`);
+    console.log(`Temporadas: ${serie.temporadas}`);
+    console.log(`Viewers: ${serie.viewers}`);
+    console.log(`Reproducciones: ${serie.reproducciones}`);
+    console.log(`Calificación: ${calificacion}`); // Muestra la calificación
+    console.log('--------------------')
+
+}) 
+
+console.log("%c12.- Permite filtrado para transformar información (También conocido como MAP)", style_console)
+
+// Usando Filter para filtrar, y map para transformar la información.
+// Lista de series que queremos verificar
+let seriesDeseadas = ["Bojack Horseman", "The Walking Dead", "Barry"];
+
+// Usando map e includes para filtrar y obtener los nombres de series con 3 temporadas
+let seriesConTresTemporadas = seriesTrending2
+    .filter(serie => serie.temporadas ===3) // Filtramos las series que tienen 3 temporadas
+    .map(serie => serie.nombre) // Obtenemos solo los nombres de esas series
+    .filter(nombre => seriesDeseadas.includes(nombre)); // Filtramos las que están en la lista de series deseadas
+
+// Mostrar los resultados
+console.log("Series con 3 temporadas que están en la lista deseada:");
+console.log(seriesConTresTemporadas);   
