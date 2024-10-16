@@ -205,10 +205,9 @@ console.table(Pedido);
 
 // Operaciones sobre Objetos
 // Unión de Objetos
-console.log("%c9.- Métodos para contorlar la mutabilidad de los Objetos, Sellado (SEAL)", style_console);
 
 // Destructuración de 2 o más objetos
-console.log("%c10.- Desestructuración de 2 o más Objetos", style_console);
+console.log("%c9.- Desestructuración de 2 o más Objetos", style_console);
 let {Precio: productoPrecio, SKU: productoSKU, Marca: productoMarca} = Producto
 let {Correo: clienteCorreo, PaisOrigen: clientePais, SaldoActual: clienteSaldo, Tipo: clienteTipo} = Comprador
 
@@ -253,7 +252,7 @@ console.table(datosClientesPromociones);
 
 //Operaciones sobre Objetos
 // Unión de Objetos
-console.log("%c11.- Unión de Objetos usando el método de asignación (ASSING)", style_console);
+console.log("%c10.- Unión de Objetos usando el método de asignación (ASSING)", style_console);
 
 console.log("Imprimos la estructura y valores del Objeto PRODUCTO")
 console.table(Producto);
@@ -269,7 +268,7 @@ const Venta = Object.assign(Producto3, Pedido);
 // IMPORTANTE: ASSIGN, no solo permite la fusión de 2 o más objetos, también muta los objetos originales, perdiendo el valor original del ID en este
 
 // Unión de Objetos usando SPREAD OPERATOR para evitar la perdida de información con objetos que comaprten el mismo nombre en sus propiedades
-console.log("%c12.- Unión de Objetos usando el SPREAD OPERATOR (...)", style_console);
+console.log("%c11.- Unión de Objetos usando el SPREAD OPERATOR (...)", style_console);
 
 let Venta2 =
 {
@@ -281,6 +280,7 @@ console.log("Fusionamos los 3 objetos en uno nuevo, sin perdida de información"
 console.log(Venta2)
 console.table(Venta2)
 
+console.log("%c12.- Mutabilidad POST Unión de Objetos",style_console)
 // Vamos a verificar el estatus de mutabilidad de los objetos
 console.log("Vamos a  verificar el estatus de mutabilidad del objeto Pedido")
 console.log(`Esta el objeto de Pedido Congelado ? : ${Object.isFrozen(Pedido)}`);
