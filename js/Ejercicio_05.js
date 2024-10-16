@@ -87,7 +87,7 @@ else
 }
 
 console.log("%c2.- Operador Ternario (validacion=cumple:no_cumple)",style_console);
-// En Java Script exista una operación simplificada que valdia si una condición se cumple o no, y que hacer en cada caso
+// En Java existe una operación simplificada que valdia si una condición se cumple o no, y que hacer en cada caso
 
 const edadPersona= 18;
 const mayoriaEdadMX=18;
@@ -99,7 +99,7 @@ let evaluarMayoriaEdad = (edad) =>
 console.log("Evaluando la mayoria de edad de una persona")
 console.log(evaluarMayoriaEdad(edadPersona));
 
-// Sin embargo tenemos que considerar que la mayoría de edad varia en cada áis por cuestiones legales, por lo que debemos considerar un segundo parámetro en la evaluación
+// Sin embargo tenemos que considerar que la mayoría de edad varia en cada país por cuestiones legales, por lo que debemos considerar un segundo parámetro en la evaluación
 
 evaluarMayoriaEdad = (edad,pais) =>
     (edad>=18 && pais==="MX")?`En ${pais} eres mayor de edad `:`En ${pais} No eres mayor de edad `;
@@ -228,7 +228,7 @@ let mensaje = "";
 let j = 0;
 
 while (j<dias.length){
-    switch (j) { // Usamos 'j' para que coincide con el índice
+    switch (j) { // Usamos 'j' para que coincida con el índice
         case 0:
             finDeSemana=true;
             mensaje="Mormingooooo... ZzzzzZZZZzz 🎶";
@@ -293,7 +293,7 @@ do {
 
 console.log("Fin de la reproducción.");
 
-// Ciclo para recorrer objetos iterables cómo mapas, arreglos, cadenas y conjuntos de datos
+// Ciclo para recorrer objetos iterables como mapas, arreglos, cadenas y conjuntos de datos
 console.log("%c9.- Ciclos para recorrer elementos finitos- (FOR...OF) ", style_console);
 
 let seriesTrending = [
@@ -354,7 +354,7 @@ seriesTrending2.forEach((serie,index) =>{
 
 }) 
 
-console.log("%c12.- Permite filtrado para transformar información (También conocido como MAP)", style_console)
+console.log("%c12.- Filtrado y Mapeo para transformar información o obtener (respectivamente)", style_console)
 
 // Usando Filter para filtrar, y map para transformar la información.
 // Lista de series que queremos verificar
